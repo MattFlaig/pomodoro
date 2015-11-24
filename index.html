@@ -4,6 +4,7 @@
     <title>Pomodoro Clock</title>
     <meta charset='utf-8' />
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' type='text/css' href='css/pomodoro.css'/>
     <script src='http://code.jquery.com/jquery.js'></script>
     <script type='text/javascript' src='js/angular.min.js'></script>
@@ -13,14 +14,17 @@
   <body>
     <section id='main' ng-controller="TimerCtrl">
         <div id='circle'>
+            <span style="background: teal;" ng-style="{'height':fillHeight}" class="fill"></span>
       	    <div id='clock'>
-      		    {{counter | secondsToDateTime | date:'mm:ss'}}
+      		    {{ counter | secondsToDateTime | date:'mm:ss' }}
       	    </div>
         </div>
         <div id='timerControls'>
 	        <button class='controlButton' ng-click='startTimer()'>Start</button>
 	        <button class='controlButton' ng-click='stopTimer()'>Stop</button>
 	        <button class='controlButton' ng-click='resetTimer()'>Reset</button>
+          <button class='controlButton operator' ng-click='add()'>+</button>
+          <button class='controlButton operator' ng-click='subtract()'>-</button>
 	    </div>
     </section>
   </body>
